@@ -1,0 +1,104 @@
+:root {
+   /* Typography */
+   --font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+   /* Light Theme Tokens */
+   --bg-page: #f8fafc;
+   --bg-surface: #ffffff;
+   --bg-surface-translucent: rgba(255, 255, 255, 0.85);
+   --text-primary: #0f172a;
+   --text-secondary: #475569;
+   --text-muted: #94a3b8;
+   --border-subtle: rgba(226, 232, 240, 0.85);
+   --border-card: rgba(15, 23, 42, 0.06);
+   --primary-accent: #3b82f6;
+   --primary-accent-hover: #2563eb;
+   --focus-ring: rgba(59, 130, 246, 0.25);
+
+   /* Elevation Shadows */
+   --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+   --shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+   --shadow-header: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+   --shadow-input: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+   /* Layout Radii */
+   --radius-sm: 8px;
+   --radius-md: 12px;
+   --radius-lg: 16px;
+
+   /* Legacy variable compatibility */
+   --background-color: var(--bg-page);
+   --text-color: var(--text-primary);
+   --elements-color: var(--bg-surface);
+}
+
+body.dark {
+   /* Dark Theme Tokens */
+   --bg-page: #0f172a;
+   --bg-surface: #1e293b;
+   --bg-surface-translucent: rgba(30, 41, 59, 0.85);
+   --text-primary: #f8fafc;
+   --text-secondary: #cbd5e1;
+   --text-muted: #64748b;
+   --border-subtle: rgba(255, 255, 255, 0.08);
+   --border-card: rgba(255, 255, 255, 0.06);
+   --primary-accent: #60a5fa;
+   --primary-accent-hover: #93c5fd;
+   --focus-ring: rgba(96, 165, 250, 0.3);
+
+   /* Elevation Shadows (Dark) */
+   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
+   --shadow-hover: 0 20px 30px -5px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(96, 165, 250, 0.2);
+   --shadow-header: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+   --shadow-input: 0 2px 10px rgba(0, 0, 0, 0.25);
+
+   /* Legacy variable compatibility */
+   --background-color: var(--bg-page);
+   --text-color: var(--text-primary);
+   --elements-color: var(--bg-surface);
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   font-size: 16px;
+   scroll-behavior: smooth;
+}
+
+body {
+   font-family: var(--font-family);
+   background-color: var(--bg-page);
+   color: var(--text-primary);
+   min-height: 100vh;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   transition: background-color 0.3s ease, color 0.3s ease;
+   overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+   width: 10px;
+   height: 10px;
+}
+
+::-webkit-scrollbar-track {
+   background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--text-muted);
+   border-radius: 9999px;
+   border: 2px solid var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: var(--text-secondary);
+}
+

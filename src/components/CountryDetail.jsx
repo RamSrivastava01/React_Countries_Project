@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import CountryDetailShimmer from "./CountryDetailShimmer";
 
 export default function CountryDetail() {
-   const countryName = new URLSearchParams(location.search).get("name");
+   const { country: countryName } = useParams();
    const [countryData, setCountryData] = useState(null);
+   const [countryNotFound, setCountryNotFound] = useState(false);
 
    useEffect(() => {
       async function getCountryDetails() {
@@ -26,25 +29,27 @@ export default function CountryDetail() {
                   (c) =>
                      c.names.common.toLowerCase() === countryName.toLowerCase(),
                ) || data?.data?.objects?.[0];
-
+            console.log(country);
+            if (!country) {
+               setCountryNotFound(true);
+               return;
+            }
             setCountryData(country);
          } catch (error) {
             console.error("Failed to fetch country:", error);
+            setCountryNotFound(true);
          }
       }
 
       getCountryDetails();
    }, [countryName]);
 
-   // Prevent crashes while waiting for the fetch to complete
+   if (countryNotFound) {
+      return <h1>No country Found</h1>;
+   }
+
    if (!countryData) {
-      return (
-         <main>
-            <p style={{ textAlign: "center", marginTop: "40px" }}>
-               Loading country details...
-            </p>
-         </main>
-      );
+      return <CountryDetailShimmer />;
    }
 
    return (

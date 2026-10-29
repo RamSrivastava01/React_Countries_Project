@@ -284,6 +284,133 @@ main {
    border-color: rgba(59, 130, 246, 0.3);
 }
 
+/* --------------------------------------------------------------------------
+   Shimmer Loading Skeleton
+   -------------------------------------------------------------------------- */
+@keyframes shimmerWave {
+   0% {
+      background-position: -200% 0;
+   }
+   100% {
+      background-position: 200% 0;
+   }
+}
+
+.shimmer-card {
+   pointer-events: none;
+   cursor: default;
+   animation: none;
+}
+
+.shimmer-card:hover {
+   transform: none;
+   box-shadow: var(--shadow-card);
+   border-color: var(--border-card);
+}
+
+.shimmer-bg {
+   background: linear-gradient(
+      90deg,
+      rgba(226, 232, 240, 0.7) 25%,
+      rgba(241, 245, 249, 1) 50%,
+      rgba(226, 232, 240, 0.7) 75%
+   );
+   background-size: 200% 100%;
+   animation: shimmerWave 1.6s infinite ease-in-out;
+}
+
+body.dark .shimmer-bg {
+   background: linear-gradient(
+      90deg,
+      rgba(30, 41, 59, 0.75) 25%,
+      rgba(51, 65, 85, 0.95) 50%,
+      rgba(30, 41, 59, 0.75) 75%
+   );
+   background-size: 200% 100%;
+}
+
+.shimmer-flag {
+   width: 100%;
+   height: 170px;
+   border-bottom: 1px solid var(--border-card);
+}
+
+.shimmer-line {
+   border-radius: 6px;
+}
+
+.shimmer-title {
+   height: 22px;
+   width: 72%;
+   margin-bottom: 20px;
+}
+
+.shimmer-text {
+   height: 14px;
+   margin-bottom: 12px;
+}
+
+.shimmer-text.long {
+   width: 85%;
+}
+
+.shimmer-text.medium {
+   width: 68%;
+}
+
+.shimmer-text.short {
+   width: 52%;
+}
+
+/* Country Detail Shimmer Elements */
+.shimmer-back-btn {
+   width: 120px;
+   height: 42px;
+   border-radius: var(--radius-sm);
+   margin-bottom: 24px;
+}
+
+.details-shimmer-flag {
+   width: 46%;
+   max-width: 540px;
+   height: 360px;
+   border-radius: var(--radius-lg);
+   border: 1px solid var(--border-subtle);
+}
+
+.details-shimmer-title {
+   height: 38px;
+   width: 60%;
+   border-radius: 8px;
+   margin-bottom: 28px;
+}
+
+.details-shimmer-line {
+   height: 18px;
+   width: 85%;
+   border-radius: 6px;
+   margin-bottom: 12px;
+}
+
+.details-shimmer-borders {
+   border-top: 1px solid var(--border-subtle);
+   padding-top: 24px;
+   margin-top: 20px;
+}
+
+.details-shimmer-border-title {
+   width: 140px;
+   height: 20px;
+   border-radius: 6px;
+}
+
+.shimmer-tag {
+   width: 72px;
+   height: 32px;
+   border-radius: var(--radius-sm);
+   border: 1px solid var(--border-subtle);
+}
+
 /* Card Flag */
 .card-flag-container {
    width: 100%;

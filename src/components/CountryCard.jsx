@@ -8,9 +8,10 @@ export default function CountryCard({
    capital,
 }) {
    // console.log({ name, flag, population, region, capital });
+
    const displayName = typeof name === "object" ? name.common : name;
    return (
-      <Link className="country-card" to={`/country/?name=${displayName}`}>
+      <Link className="country-card" to={`/${displayName}`}>
          <div className="card-flag-container">
             <img
                src={flag ? flag : "  "}

@@ -3,7 +3,7 @@ import CountryCard from "./CountryCard";
 import CountriesListShimmer from "./CountriesListShimmer";
 import { ThemeContext } from "../contexts/ThemeContext";
 
-export default function CountriesList({ query }) {
+export default function CountriesList({ query, region }) {
    const [countriesData, setCountriesData] = useState([]);
 
    const value = useContext(ThemeContext);
@@ -38,11 +38,15 @@ export default function CountriesList({ query }) {
    return (
       <div className="countries-container">
          {countriesData
-            .filter((country) =>
-               country.names?.common
+            .filter((country) => {
+               const matchesQuery = country.names?.common
                   ?.toLowerCase()
-                  .includes(query?.toLowerCase() || ""),
-            )
+                  .includes(query?.toLowerCase() || "");
+               const matchesRegion =
+                  !region || country.region?.toLowerCase() === region.toLowerCase();
+
+               return matchesQuery && matchesRegion;
+            })
             .map((country) => {
                return (
                   <CountryCard

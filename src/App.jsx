@@ -5,7 +5,7 @@ import { ThemeContext } from "./contexts/ThemeContext.jsx";
 
 function App() {
    return (
-      <ThemeContext.Provider value={{ name: "dummy", age: 25 }}>
+      <ThemeContext.Provider>
          <Header />
          <Outlet />
       </ThemeContext.Provider>

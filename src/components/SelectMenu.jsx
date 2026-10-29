@@ -1,10 +1,13 @@
-export default function SelectMenu() {
+export default function SelectMenu({ region, setRegion }) {
    return (
       <div className="select-container">
-         <select className="filter-by-region" aria-label="Filter by Region" defaultValue="">
-            <option value="" disabled hidden>
-               Filter by Region
-            </option>
+         <select
+            className="filter-by-region"
+            aria-label="Filter by Region"
+            value={region}
+            onChange={(event) => setRegion(event.target.value)}
+         >
+            <option value="">All Regions</option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
             <option value="Asia">Asia</option>
